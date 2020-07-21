@@ -1,6 +1,6 @@
 {
   "name": "boqii-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "node-cli 脚手架，支持vue，react，小程序模板",
   "main": "bin/index.js",
   "scripts": {

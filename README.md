@@ -15,6 +15,7 @@ $ boqii-cli init
 - chalk 终端颜色
 - download-git-repo
 - handbars 模板
+- 对文件操作我选择了 fs-extra 这个库
 
 模板文件暂不开放
 
