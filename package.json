@@ -1,6 +1,6 @@
 {
   "name": "boqii-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "node-cli 脚手架，支持vue，react，小程序模板",
   "main": "bin/index.js",
   "scripts": {
@@ -19,7 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/yangfei19881024/node-cli.git"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.6",
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "commander": "^5.1.0",
@@ -30,12 +33,7 @@
     "node-emoji": "^1.10.0",
     "ora": "^4.0.4",
     "request": "^2.88.2",
-    "shelljs": "^0.8.4",
     "yargs": "^15.4.1"
-  },
-  "dependencies": {
-    "download-git-repo": "^3.0.2",
-    "handlebars": "^4.7.6"
   },
   "bugs": {
     "url": "https://github.com/yangfei19881024/node-cli/issues"

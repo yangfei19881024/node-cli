@@ -10,7 +10,7 @@ module.exports = {
       {
         type: 'list',
         name: 'type',
-        message: '选择项目架手架模板',
+        message: '选择项目脚手架模板',
         choices: [
           {name: 'React', value: 'react'},
           {name: 'Vue', value: 'vue'},

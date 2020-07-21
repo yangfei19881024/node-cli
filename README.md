@@ -16,6 +16,8 @@ $ boqii-cli init
 - download-git-repo
 - handbars 模板
 
+模板文件暂不开放
+
 git push 时候报错
 Error: Permission to user/repo denied to user/other-repo
 
