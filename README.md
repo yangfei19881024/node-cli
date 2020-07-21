@@ -1,5 +1,13 @@
 # CLI 脚手架
 
+## 如何使用
+
+```bash
+$ npm install boqii-cli -g
+$ boqii-cli init
+开始你的表演
+```
+
 ## 依赖的库
 
 - inquirer

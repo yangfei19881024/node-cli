@@ -38,12 +38,10 @@ async function run() {
   // 开始下载 git 项目到本地
   let tempPath = await startDown(project_type)
 
-  console.log(tempPath)
-  return
   // 项目下载下来再次询问
   let project_info = await inquirer.askProjectInfo()
 
-  // const spinner = ora(`${project_type} 项目生成中...`).start()
+  const spinner = ora(`${project_type} 项目生成中...`).start()
 
   let pkg = fse.readJsonSync(
     require('path').resolve(tempPath, './package.json')
@@ -68,7 +66,12 @@ async function run() {
   })
   // 删除临时文件
   fse.removeSync(tempPath)
-  // setTimeout(spinner.stop, 1000)
+  setTimeout(function () {
+    spinner.succeed(`愉快的使用${project_type} 脚手架开发吧`)
+    console.log(
+      chalk.yellow('cd ' + project_info.name + '\nnpm install\nnpm run dev')
+    )
+  }, 1000)
 }
 
 run()

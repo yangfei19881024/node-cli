@@ -1,8 +1,8 @@
 {
-  "name": "{{name}}",
-  "version": "{{version}}",
-  "description": "{{description}}",
-  "main": "index.js",
+  "name": "boqii-cli",
+  "version": "1.0.0",
+  "description": "node-cli 脚手架，支持vue，react，小程序模板",
+  "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,10 @@
   "license": "ISC",
   "bin": {
     "boqii-cli": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangfei19881024/node-cli.git"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
@@ -29,5 +33,15 @@
   "dependencies": {
     "download-git-repo": "^3.0.2",
     "handlebars": "^4.7.6"
-  }
+  },
+  "keywords": [
+    "node-cli",
+    "脚手架"
+  ],
+  "author": "yangfei@boqii.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangfei19881024/node-cli/issues"
+  },
+  "homepage": "https://github.com/yangfei19881024/node-cli#readme"
 }

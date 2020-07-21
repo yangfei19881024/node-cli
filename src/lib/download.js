@@ -13,7 +13,7 @@ module.exports = function (project_type = '') {
     // 正确写法 github:github账号/项目名(没有.git结尾)#分支
     // 比如 github:yangfei19881024/primitive-js#master
     download(
-      'github:yangfei19881024/primitive-js#master',
+      require('./git-repo')[project_type],
       target,
       {clone: true},
       (err) => {

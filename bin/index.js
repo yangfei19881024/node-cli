@@ -12,17 +12,14 @@ program.version(version, '-v, --version') // 执行mycli -v 或 mycli --version�
 
 let actionMap = {
   init: {
-    description: 'generate a new (vue/react)project from a template',
+    description:
+      'generate a new (vue/react/miniprograme)project from a template',
     usages: ['boqii-cli init'],
   },
   config: {
     alias: 'cfg',
     description: 'config .eosrc',
-    usages: [
-      'eos config set <k> <v>',
-      'eos config get <k>',
-      'eos config remove <k>',
-    ],
+    usages: ['暂不开放'],
   },
 }
 
