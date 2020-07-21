@@ -1,0 +1,33 @@
+{
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "boqii-cli": "bin/index.js"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "commander": "^5.1.0",
+    "compressing": "^1.5.1",
+    "figlet": "^1.5.0",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.2",
+    "node-emoji": "^1.10.0",
+    "ora": "^4.0.4",
+    "request": "^2.88.2",
+    "shelljs": "^0.8.4",
+    "yargs": "^15.4.1"
+  },
+  "dependencies": {
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.6"
+  }
+}
