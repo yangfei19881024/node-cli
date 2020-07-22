@@ -19,7 +19,9 @@
     "type": "git",
     "url": "git+https://github.com/yangfei19881024/node-cli.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "log-symbols": "^4.0.0"
+  },
   "dependencies": {
     "download-git-repo": "^3.0.2",
     "handlebars": "^4.7.6",

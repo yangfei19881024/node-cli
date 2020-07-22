@@ -1,15 +1,16 @@
 #!/usr/bin/env node
+const path = require('path')
 const chalk = require('chalk')
 const clear = require('clear')
 const figlet = require('figlet')
 const ora = require('ora')
 const fse = require('fs-extra')
 const Handlebars = require('handlebars')
-const path = require('path')
+const logSymbols = require('log-symbols')
 
 const files = require('./lib/files')
 const inquirer = require('./lib/inquirer')
-const startDown = require('./lib/download')
+const startDownLoad = require('./lib/download')
 const npmInstall = require('./lib/npminstall')
 
 clear()
@@ -41,7 +42,7 @@ async function run() {
   let {type: project_type} = await inquirer.askProjectType()
 
   // 开始下载 git 项目到本地
-  let tempPath = await startDown(project_type)
+  let tempPath = await startDownLoad(project_type)
 
   // 项目下载下来再次询问
   let project_info = await inquirer.askProjectInfo()
@@ -85,3 +86,10 @@ async function run() {
 }
 
 run()
+
+// 程序突然退出 逻辑处理
+process.on('exit', function (err) {
+  console.log('\n')
+  console.log(logSymbols.error, '程序意外终止')
+  fse.removeSync('.download-temp')
+})
