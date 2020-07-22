@@ -1,4 +1,5 @@
 const child_process = require('child_process')
+
 const {resolve} = require('path')
 
 module.exports = function npmInstall(...args) {
