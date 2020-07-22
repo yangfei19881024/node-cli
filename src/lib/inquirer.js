@@ -14,6 +14,7 @@ module.exports = {
         choices: [
           {name: 'React', value: 'react'},
           {name: 'Vue', value: 'vue'},
+          {name: 'Typescript', value: 'ts'},
           {name: '小程序', value: 'mini'},
         ],
       },
