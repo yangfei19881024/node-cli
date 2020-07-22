@@ -1,16 +1,16 @@
 #!/usr/bin/env node
-
 const chalk = require('chalk')
 const clear = require('clear')
 const figlet = require('figlet')
 const ora = require('ora')
+const fse = require('fs-extra')
+const Handlebars = require('handlebars')
+const path = require('path')
 
 const files = require('./lib/files')
 const inquirer = require('./lib/inquirer')
 const startDown = require('./lib/download')
-const fse = require('fs-extra')
-const Handlebars = require('handlebars')
-const path = require('path')
+const npmInstall = require('./lib/npminstall')
 
 clear()
 
@@ -25,6 +25,11 @@ if (files.directoryExists('.git')) {
   console.log(chalk.red('已经存在一个本地仓库!'))
   process.exit()
 }
+
+function spinner(text) {
+  return ora(text).start()
+}
+
 /**
  * 1. 先去下载 项目
  * 2. 在目录下新建文件夹?
@@ -41,7 +46,7 @@ async function run() {
   // 项目下载下来再次询问
   let project_info = await inquirer.askProjectInfo()
 
-  const spinner = ora(`${project_type} 项目生成中...`).start()
+  const spinner_generate = spinner(`${project_type} 项目生成中...`)
 
   let pkg = fse.readJsonSync(
     require('path').resolve(tempPath, './package.json')
@@ -66,11 +71,16 @@ async function run() {
   })
   // 删除临时文件
   fse.removeSync(tempPath)
-  setTimeout(function () {
-    spinner.succeed(`愉快的使用${project_type} 脚手架开发吧`)
-    console.log(
-      chalk.yellow('cd ' + project_info.name + '\nnpm install\nnpm run dev')
-    )
+  setTimeout(async function () {
+    spinner_generate.stop()
+
+    const spinner_install = spinner('安装项目依赖...')
+    // 通过子进程 安装npm 依赖库
+    await npmInstall('npm', ['install'], {cwd: `./${project_info.name}`})
+
+    spinner_install.succeed(`愉快的使用${project_type} 脚手架开发吧`)
+
+    console.log(chalk.yellow('cd ' + project_info.name + '\nnpm run dev'))
   }, 1000)
 }
 
