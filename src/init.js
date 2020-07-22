@@ -55,11 +55,11 @@ async function run() {
 
   var pkg_template = Handlebars.compile(JSON.stringify(pkg))
 
-  var html = pkg_template(project_info)
+  var pkg_str = pkg_template(project_info)
 
   fse.writeJsonSync(
     require('path').resolve(tempPath, './package.json'),
-    JSON.parse(html),
+    JSON.parse(pkg_str),
     /**格式化 package.json */
     {
       spaces: '\t',
@@ -88,8 +88,14 @@ async function run() {
 run()
 
 // 程序突然退出 逻辑处理
-process.on('exit', function (err) {
+process.on('SIGINT', function (err) {
   console.log('\n')
   console.log(logSymbols.error, '程序意外终止')
   fse.removeSync('.download-temp')
 })
+
+// process.on('error', function (err) {
+//   console.log('\n')
+//   console.log(logSymbols.error, '程序意外终止')
+//   fse.removeSync('.download-temp')
+// })
