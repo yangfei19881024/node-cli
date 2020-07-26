@@ -77,7 +77,11 @@ async function run() {
 
     const spinner_install = spinner('安装项目依赖...')
     // 通过子进程 安装npm 依赖库
-    await npmInstall('npm', ['install'], {cwd: `./${project_info.name}`})
+    await npmInstall(
+      'npm',
+      ['install', '--registry=https://registry.npm.taobao.org'],
+      {cwd: `./${project_info.name}`}
+    )
 
     spinner_install.succeed(`愉快的使用${project_type} 脚手架开发吧`)
 
